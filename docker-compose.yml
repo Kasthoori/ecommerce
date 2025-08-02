@@ -1,0 +1,16 @@
+services:
+  postgres:
+    container_name: ms_pg_sql
+    image: postgres:16
+    environment:
+      POSTGRES_USER: anura
+      POSTGRES_PASSWORD: anura
+      POSTGRES_DB: ecom
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      -pgdata:/var/lib/postgresql/data/pgdata
+    ports:
+      -"5432:5432"
+volumes:
+  pgdata:
+  
