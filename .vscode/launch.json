@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "DiscoveryApplication",
+            "request": "launch",
+            "mainClass": "com.ecom.discovery.DiscoveryApplication",
+            "projectName": "discovery"
+        },
+        {
+            "type": "java",
             "name": "CustomerApplication",
             "request": "launch",
             "mainClass": "com.ecommerce.customer.CustomerApplication",
