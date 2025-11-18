@@ -1,5 +1,11 @@
 {
     "java.configuration.updateBuildConfiguration": "interactive",
     "java.compile.nullAnalysis.mode": "automatic",
-    "maven.view": "hierarchical"
+    "maven.view": "hierarchical",
+    "cSpell.words": [
+        "configserver",
+        "ecom",
+        "firstname",
+        "lastname"
+    ]
 }
