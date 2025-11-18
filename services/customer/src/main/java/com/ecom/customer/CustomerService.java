@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.ecom.exception.CustomerNotFoundException;
 
+import java.util.List;
 import java.util.Objects;
+
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -22,6 +24,8 @@ public class CustomerService {
 
         return customer.getId();
     }
+    
+    @SuppressWarnings("null")
     public void updateCustomer(CustomerRequest request) {
         
         var customer = repository.findById(request.id())
@@ -50,6 +54,21 @@ public class CustomerService {
         if (request.address() != null) {
             customer.setAddress(request.address());
         }
+    }
+
+    public List<CustomerResponse> findAllCustomers() {
+           
+        return repository.findAll()
+                            .stream()
+                            .map(mapper::toCustomerResponse)
+                            .toList();
+    }
+
+    @SuppressWarnings("null")
+    public Boolean existById(String customerId) {
+        
+        return repository.findById(customerId)
+                         .isPresent();
     }
     
 

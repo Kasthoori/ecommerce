@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,7 +38,16 @@ public class CustomerController {
 
     @GetMapping
     public ResponseEntity<List<CustomerResponse>> findAll() {
+
+        return ResponseEntity.ok(service.findAllCustomers());
         
+    }
+
+    @GetMapping("/exists/{customer-id}")
+    public ResponseEntity<Boolean> existById(
+            @PathVariable("customer-id") String customerId
+    ) {
+          return ResponseEntity.ok(service.existById(customerId));
     }
     
 }
